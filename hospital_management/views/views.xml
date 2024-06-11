@@ -1,0 +1,153 @@
+<odoo>
+  <data>
+
+    <!-- Hospital Manage Form View -->
+    <record id="view_hospital_management_form" model="ir.ui.view">
+      <field name="name">hospital_management.form</field>
+      <field name="model">hospital_management.hospital_management</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="branch_name"/>
+              <field name="address_hos"/>
+              <field name="phone_number"/>
+              <field name="description_hos"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Hospital Manage Tree View -->
+    <record model="ir.ui.view" id="hospital_management.list">
+      <field name="name">hospital_management.tree</field>
+      <field name="model">hospital_management.hospital_management</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="branch_name"/>
+            <field name="address_hos"/>
+            <field name="phone_number"/>
+            <field name="description_hos"/>
+        </tree>
+      </field>
+    </record>
+
+
+
+
+
+    <!-- Doctor Manage Form View -->
+    <record id="view_doctor_management_form" model="ir.ui.view">
+      <field name="name">doctor_management.form</field>
+      <field name="model">doctor.doctor</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+                <field name="doctor_fname"></field>
+                <field name="doctor_lname"></field>
+                <field name="address_doc"></field>
+                <field name="doctor_id"></field>
+                <field name="doc_phone_number"></field>
+                <field name="doc_workplace"></field>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Hospital Manage Tree View -->
+    <record model="ir.ui.view" id="doctor_management_list">
+      <field name="name">doctor_management.tree</field>
+      <field name="model">doctor.doctor</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="doctor_fname"/>
+          <field name="doctor_lname"/>
+          <field name="address_doc"/>
+          <field name="doctor_id"/>
+          <field name="doc_phone_number"/>
+          <field name="doc_workplace"/>
+        </tree>
+      </field>
+    </record>
+
+
+
+
+
+
+
+    <!-- Patient Manage Form View -->
+    <record id="view_patient_management_form" model="ir.ui.view">
+      <field name="name">patient.form</field>
+      <field name="model">patient.patient</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+                <field name="patient_id"></field>
+                <field name="patient_fname"></field>
+                <field name="patient_lname"></field>
+                <field name="patient_address"></field>
+                <field name="patient_place"></field>
+                <field name="patient_dayin"></field>
+                <field name="patient_dayout"></field>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Patient Manage Tree View -->
+    <record model="ir.ui.view" id="patient_list">
+      <field name="name">patient.tree</field>
+      <field name="model">patient.patient</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="patient_id"/>
+          <field name="patient_fname"/>
+          <field name="patient_lname"/>
+          <field name="patient_address"/>
+          <field name="patient_place"/>
+          <field name="patient_dayin"/>
+          <field name="patient_dayout"/>
+        </tree>
+      </field>
+    </record>
+
+
+
+
+
+
+
+
+    <!-- Actions -->
+    <record id="action_hospital_management" model="ir.actions.act_window">
+      <field name="name">Hospital Management</field>
+      <field name="res_model">hospital_management.hospital_management</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_doctor_management" model="ir.actions.act_window">
+      <field name="name">Doctor Management</field>
+      <field name="res_model">doctor.doctor</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_patient_management" model="ir.actions.act_window">
+      <field name="name">Patient Management</field>
+      <field name="res_model">patient.patient</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Items -->
+    <menuitem name="Hospital" id="menu_hospital_management_root"/>
+    
+    <menuitem name="Hospital Management" id="menu_hospital" parent="menu_hospital_management_root" action="action_hospital_management"/>
+    <menuitem name="Doctor Management" id="menu_doctor" parent="menu_hospital_management_root" action="action_doctor_management"/>
+    <menuitem name="Patient Management" id="menu_patient" parent="menu_hospital_management_root" action="action_patient_management"/>
+  </data>
+</odoo>
